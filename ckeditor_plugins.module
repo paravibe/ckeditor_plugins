@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Provide Ckeditor plugins.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function ckeditor_plugins_menu() {
+  $items = array();
+
+  return $items;
+}
+
+/**
+ * Implements of hook_init();
+ */
+function ckeditor_plugins_init() {
+  drupal_add_library('system', 'ui.dialog');
+}
+
+/**
+ * Implements of hook_wysiwyg_plugin().
+ */
+function ckeditor_plugins_wysiwyg_plugin($editor, $version) {
+  if ($editor == 'ckeditor') {
+    $module_path = drupal_get_path('module', 'ckeditor_plugins');
+    $plugins = array();
+
+    $plugins['drupallink'] = array(
+      'title' => 'DrupalLink',
+      'path' => $module_path . '/js/plugins/drupallink',
+      'filename' => 'plugin.js',
+      'load' => TRUE,
+      'buttons' => array(
+        'DrupalLink' => t('DrupalLink'),
+        'DrupalUnlink' => t('DrupalUnlink'),
+      ),
+    );
+
+    return $plugins;
+  }
+}

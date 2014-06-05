@@ -1,0 +1,4 @@
+name = Ckeditor plugins
+description = Provide plugins for Ckeditor
+core = 7.x
+dependencies[] = wysiwyg
