@@ -19,6 +19,8 @@ function ckeditor_plugins_menu() {
  */
 function ckeditor_plugins_init() {
   drupal_add_library('system', 'ui.dialog');
+  drupal_add_js(drupal_get_path('module', 'ckeditor_plugins') . '/js/ckeditor_plugins.js');
+  drupal_add_css(drupal_get_path('module', 'ckeditor_plugins') . '/css/ckeditor_plugins.css');
 }
 
 /**

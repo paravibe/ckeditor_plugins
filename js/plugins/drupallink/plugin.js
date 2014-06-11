@@ -99,6 +99,7 @@
             title: this.name,
             dialogClass: 'editor-link-dialog',
             resizable: false,
+            width: 'auto',
             buttons: {
               OK: function() {
                 saveCallback({
@@ -106,14 +107,13 @@
                     href: 'http://drupal.org'
                   }
                 });
-                $( this ).dialog( "close" );
+                $(this).dialog('close');
               }
             }
           };
 
           // Open the dialog for the edit form.
-          $( ".page-title" ).dialog(dialogSettings);
-//          Drupal.ckeditor.openDialog(editor, 'http://paravibe.art/editor/dialog/link/basic_html', existingValues, saveCallback, dialogSettings);
+          Drupal.dialog.openDialog(editor, 'http://drupal7.art/admin/content', existingValues, saveCallback, dialogSettings);
         }
       });
       editor.addCommand('drupalunlink', {
